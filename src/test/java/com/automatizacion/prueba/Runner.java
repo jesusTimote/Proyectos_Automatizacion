@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/features",
         glue = "com.automatizacion.prueba.definitions",
-        tags = "@Login"
+        tags = "@ShoppingCardEmpty"
 )
 
 

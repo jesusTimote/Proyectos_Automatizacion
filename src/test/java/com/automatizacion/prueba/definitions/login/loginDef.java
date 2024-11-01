@@ -1,4 +1,4 @@
-package com.automatizacion.prueba.definitions;
+package com.automatizacion.prueba.definitions.login;
 
 import com.automatizacion.prueba.steps.login.loginSteps;
 import com.automatizacion.prueba.steps.validacion.validacionSteps;
