@@ -34,4 +34,9 @@ public class validacionSteps extends validacionPage {
         }
         return true;
     }
+
+    @Step("Validar finalizacion de orden")
+    public Boolean orderTextIsDisplayed(){
+        return lbl_order.isDisplayed();
+    }
 }

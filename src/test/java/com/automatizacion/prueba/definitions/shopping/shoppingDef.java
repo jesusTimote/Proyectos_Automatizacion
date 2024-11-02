@@ -1,6 +1,7 @@
 package com.automatizacion.prueba.definitions.shopping;
 
 import com.automatizacion.prueba.steps.products.selectProductSteps;
+import com.automatizacion.prueba.steps.shopping.shoppingCartSteps;
 import com.automatizacion.prueba.steps.validacion.validacionSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -14,6 +15,9 @@ public class shoppingDef {
 
     @Steps(shared = true)
     validacionSteps validate;
+
+    @Steps(shared = true)
+    shoppingCartSteps shoppingCart;
 
     @And("agrega productos al carrito de compras")
     public void userAddProducts(){
@@ -37,9 +41,16 @@ public class shoppingDef {
 
     @When("completa todo el registro de la orden")
     public void completaTodoElRegistroDeLaOrden() {
+        shoppingCart.clickCheckoutButton();
+        shoppingCart.typeFirstName("JORGE");
+        shoppingCart.typeLastName("GONZALES");
+        shoppingCart.typePostal("0012");
+        shoppingCart.clickContinue();
+        shoppingCart.clickFinish();
     }
 
     @Then("el sistema deberia procesar la compra")
     public void elSistemaDeberiaProcesarLaCompra() {
+        Assert.assertTrue(validate.orderTextIsDisplayed());
     }
 }
